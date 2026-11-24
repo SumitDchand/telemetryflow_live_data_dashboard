@@ -1,0 +1,9 @@
+services:
+  db:
+    ports: !override ["127.0.0.1:15433:5432"]
+  backend:
+    ports: !override ["127.0.0.1:13001:3001"]
+    environment:
+      ALLOWED_ORIGINS: http://127.0.0.1:18080,http://localhost:18080
+  frontend:
+    ports: !override ["127.0.0.1:18080:80"]

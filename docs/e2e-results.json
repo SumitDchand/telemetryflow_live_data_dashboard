@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-24T07:45:28.265Z",
+  "base": "http://127.0.0.1:18080",
+  "checks": [
+    "Dashboard bootstraps real data",
+    "WebSocket updates dashboard without refresh",
+    "All four live charts and pause/resume work",
+    "Machine filter and detail navigation work",
+    "Historical filtering and CSV export use persisted rows",
+    "Control token and backend simulation create critical alerts",
+    "Alert acknowledgement persists",
+    "Pressure, vibration, and failure scenarios are ingested",
+    "Pipeline view reports measured health",
+    "WebSocket reconnects after network interruption",
+    "Light theme works",
+    "Mobile layout has no page overflow and navigation works"
+  ],
+  "pageErrors": []
+}

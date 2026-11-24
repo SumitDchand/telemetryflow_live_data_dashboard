@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-24T07:34:46.118Z",
+  "project": "telemetryflow-qa",
+  "checks": [
+    "Collector stop produces stale heartbeat; restart resumes ingestion",
+    "Backend stop does not stop database ingestion; restart restores readiness",
+    "Database outage fails readiness; collector retries and flushes its buffer after recovery",
+    "No duplicate event IDs after recovery"
+  ],
+  "final_stats": {
+    "id": 1,
+    "heartbeat_at": "2026-11-24T07:34:45.595Z",
+    "started_at": "2026-11-24T07:34:29.539Z",
+    "last_success_at": "2026-11-24T07:34:45.595Z",
+    "successful_writes": "535",
+    "failed_attempts": "3",
+    "dropped_readings": "0",
+    "buffered_readings": 0,
+    "last_batch_ms": 10.513547982554883,
+    "total_machines": 5,
+    "active_machines": 5,
+    "average_temperature": 63.354200000000006,
+    "active_alerts": 3,
+    "ingestion_rate": "1.5000000000000000",
+    "ingestion_latency_ms": "2244.0619777777777778",
+    "ingestion_online": true,
+    "database_connected": true,
+    "connected_clients": 0,
+    "backend_uptime": 10.359545041,
+    "measured_at": "2026-11-24T07:34:46.115Z"
+  }
+}

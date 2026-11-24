@@ -1,0 +1,9 @@
+.git
+.env
+.venv
+node_modules
+**/node_modules
+frontend/dist
+.runtime
+docs/screenshots
+test-results

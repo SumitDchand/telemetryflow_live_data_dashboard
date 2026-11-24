@@ -1,0 +1,342 @@
+{
+  "executed_at": "2026-11-24T07:39:57.000912+00:00",
+  "host": {
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "logical_cpus": 10,
+    "python": "3.11.18"
+  },
+  "postgres": "PostgreSQL 17.12 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+  "configuration": {
+    "samples": 30,
+    "rows": 100000,
+    "api": "http://127.0.0.1:3001",
+    "output": "docs/benchmark-results.json"
+  },
+  "ingestion": [
+    {
+      "machines": 5,
+      "interval_seconds": 0.1,
+      "duration_seconds": 3.124,
+      "successful_records": 150,
+      "failed_attempts": 0,
+      "records_per_second": 48.01,
+      "transaction_latency": {
+        "samples": 30,
+        "median_ms": 8.291,
+        "p95_ms": 13.581
+      }
+    },
+    {
+      "machines": 5,
+      "interval_seconds": 0.5,
+      "duration_seconds": 15.099,
+      "successful_records": 150,
+      "failed_attempts": 0,
+      "records_per_second": 9.93,
+      "transaction_latency": {
+        "samples": 30,
+        "median_ms": 6.139,
+        "p95_ms": 12.295
+      }
+    },
+    {
+      "machines": 25,
+      "interval_seconds": 0.1,
+      "duration_seconds": 3.113,
+      "successful_records": 750,
+      "failed_attempts": 0,
+      "records_per_second": 240.9,
+      "transaction_latency": {
+        "samples": 30,
+        "median_ms": 12.993,
+        "p95_ms": 27.396
+      }
+    },
+    {
+      "machines": 25,
+      "interval_seconds": 0.5,
+      "duration_seconds": 15.102,
+      "successful_records": 750,
+      "failed_attempts": 0,
+      "records_per_second": 49.66,
+      "transaction_latency": {
+        "samples": 30,
+        "median_ms": 10.297,
+        "p95_ms": 15.365
+      }
+    },
+    {
+      "machines": 100,
+      "interval_seconds": 0.1,
+      "duration_seconds": 3.148,
+      "successful_records": 3000,
+      "failed_attempts": 0,
+      "records_per_second": 953.12,
+      "transaction_latency": {
+        "samples": 30,
+        "median_ms": 21.867,
+        "p95_ms": 24.551
+      }
+    },
+    {
+      "machines": 100,
+      "interval_seconds": 0.5,
+      "duration_seconds": 15.147,
+      "successful_records": 3000,
+      "failed_attempts": 0,
+      "records_per_second": 198.07,
+      "transaction_latency": {
+        "samples": 30,
+        "median_ms": 22.664,
+        "p95_ms": 25.161
+      }
+    }
+  ],
+  "insert_comparison": {
+    "individual": {
+      "records": 1000,
+      "records_per_second": 818.26,
+      "hundred_record_latency": {
+        "samples": 10,
+        "median_ms": 114.355,
+        "p95_ms": 167.233
+      }
+    },
+    "batch": {
+      "records": 1000,
+      "records_per_second": 12024.17,
+      "hundred_record_latency": {
+        "samples": 10,
+        "median_ms": 7.658,
+        "p95_ms": 9.527
+      }
+    }
+  },
+  "history_query": {
+    "unindexed": {
+      "round_trip": {
+        "samples": 30,
+        "median_ms": 3.254,
+        "p95_ms": 3.948
+      },
+      "explain_analyze": [
+        {
+          "Plan": {
+            "Node Type": "Limit",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 2752.28,
+            "Total Cost": 2752.53,
+            "Plan Rows": 100,
+            "Plan Width": 32,
+            "Actual Startup Time": 2.858,
+            "Actual Total Time": 2.865,
+            "Actual Rows": 100,
+            "Actual Loops": 1,
+            "Shared Hit Blocks": 736,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Sort",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Startup Cost": 2752.28,
+                "Total Cost": 2753.35,
+                "Plan Rows": 426,
+                "Plan Width": 32,
+                "Actual Startup Time": 2.858,
+                "Actual Total Time": 2.861,
+                "Actual Rows": 100,
+                "Actual Loops": 1,
+                "Sort Key": [
+                  "recorded_at DESC"
+                ],
+                "Sort Method": "top-N heapsort",
+                "Sort Space Used": 32,
+                "Sort Space Type": "Memory",
+                "Shared Hit Blocks": 736,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0,
+                "Plans": [
+                  {
+                    "Node Type": "Seq Scan",
+                    "Parent Relationship": "Outer",
+                    "Parallel Aware": false,
+                    "Async Capable": false,
+                    "Relation Name": "benchmark_history",
+                    "Alias": "benchmark_history",
+                    "Startup Cost": 0.0,
+                    "Total Cost": 2736.0,
+                    "Plan Rows": 426,
+                    "Plan Width": 32,
+                    "Actual Startup Time": 0.003,
+                    "Actual Total Time": 2.834,
+                    "Actual Rows": 432,
+                    "Actual Loops": 1,
+                    "Filter": "((machine_id = 'MCH-025'::text) AND (recorded_at > (now() - '12:00:00'::interval)))",
+                    "Rows Removed by Filter": 99568,
+                    "Shared Hit Blocks": 736,
+                    "Shared Read Blocks": 0,
+                    "Shared Dirtied Blocks": 0,
+                    "Shared Written Blocks": 0,
+                    "Local Hit Blocks": 0,
+                    "Local Read Blocks": 0,
+                    "Local Dirtied Blocks": 0,
+                    "Local Written Blocks": 0,
+                    "Temp Read Blocks": 0,
+                    "Temp Written Blocks": 0
+                  }
+                ]
+              }
+            ]
+          },
+          "Planning": {
+            "Shared Hit Blocks": 0,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0
+          },
+          "Planning Time": 0.047,
+          "Triggers": [],
+          "Execution Time": 2.874
+        }
+      ]
+    },
+    "indexed": {
+      "round_trip": {
+        "samples": 30,
+        "median_ms": 0.305,
+        "p95_ms": 0.407
+      },
+      "explain_analyze": [
+        {
+          "Plan": {
+            "Node Type": "Limit",
+            "Parallel Aware": false,
+            "Async Capable": false,
+            "Startup Cost": 0.42,
+            "Total Cost": 313.21,
+            "Plan Rows": 100,
+            "Plan Width": 32,
+            "Actual Startup Time": 0.006,
+            "Actual Total Time": 0.024,
+            "Actual Rows": 100,
+            "Actual Loops": 1,
+            "Shared Hit Blocks": 77,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Index Scan",
+                "Parent Relationship": "Outer",
+                "Parallel Aware": false,
+                "Async Capable": false,
+                "Scan Direction": "Forward",
+                "Index Name": "benchmark_machine_time",
+                "Relation Name": "benchmark_history",
+                "Alias": "benchmark_history",
+                "Startup Cost": 0.42,
+                "Total Cost": 1361.07,
+                "Plan Rows": 435,
+                "Plan Width": 32,
+                "Actual Startup Time": 0.006,
+                "Actual Total Time": 0.02,
+                "Actual Rows": 100,
+                "Actual Loops": 1,
+                "Index Cond": "((machine_id = 'MCH-025'::text) AND (recorded_at > (now() - '12:00:00'::interval)))",
+                "Rows Removed by Index Recheck": 0,
+                "Shared Hit Blocks": 77,
+                "Shared Read Blocks": 0,
+                "Shared Dirtied Blocks": 0,
+                "Shared Written Blocks": 0,
+                "Local Hit Blocks": 0,
+                "Local Read Blocks": 0,
+                "Local Dirtied Blocks": 0,
+                "Local Written Blocks": 0,
+                "Temp Read Blocks": 0,
+                "Temp Written Blocks": 0
+              }
+            ]
+          },
+          "Planning": {
+            "Shared Hit Blocks": 0,
+            "Shared Read Blocks": 0,
+            "Shared Dirtied Blocks": 0,
+            "Shared Written Blocks": 0,
+            "Local Hit Blocks": 0,
+            "Local Read Blocks": 0,
+            "Local Dirtied Blocks": 0,
+            "Local Written Blocks": 0,
+            "Temp Read Blocks": 0,
+            "Temp Written Blocks": 0
+          },
+          "Planning Time": 0.029,
+          "Triggers": [],
+          "Execution Time": 0.03
+        }
+      ]
+    }
+  },
+  "api": {
+    "/api/health": {
+      "latency": {
+        "samples": 30,
+        "median_ms": 0.545,
+        "p95_ms": 0.85
+      },
+      "failed_requests": 0
+    },
+    "/api/telemetry/history?machine_id=MCH-001&limit=100": {
+      "latency": {
+        "samples": 30,
+        "median_ms": 1.08,
+        "p95_ms": 1.236
+      },
+      "failed_requests": 0
+    },
+    "/api/telemetry/summary?range=1h": {
+      "latency": {
+        "samples": 30,
+        "median_ms": 1.905,
+        "p95_ms": 2.667
+      },
+      "failed_requests": 0
+    }
+  },
+  "duration_seconds": 56.64,
+  "runner_resources": {
+    "cpu_seconds": 0.787,
+    "peak_rss_bytes": 50921472,
+    "scope": "benchmark Python process only, not database or browser"
+  }
+}

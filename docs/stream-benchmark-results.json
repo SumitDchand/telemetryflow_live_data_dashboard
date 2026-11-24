@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-24T07:32:33.932Z",
+  "duration_seconds": 30.003,
+  "records": 75,
+  "messages": 15,
+  "generation_to_ws_client": {
+    "samples": 75,
+    "median_ms": 14,
+    "p95_ms": 18
+  },
+  "server_send_to_ws_client": {
+    "samples": 15,
+    "median_ms": 0,
+    "p95_ms": 1
+  },
+  "note": "Local Node WebSocket client receipt, not browser paint. Wall-clock metrics require synchronized hosts. No replay included."
+}

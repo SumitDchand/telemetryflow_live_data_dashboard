@@ -1,0 +1,12 @@
+node_modules/
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+frontend/dist/
+coverage/
+.runtime/
+test-results/
+playwright-report/
+.DS_Store
